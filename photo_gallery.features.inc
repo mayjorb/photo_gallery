@@ -71,6 +71,21 @@ function photo_gallery_imagecache_default_presets() {
         ),
       ),
     ),
+    'page_slideshow' => array(
+      'presetname' => 'page_slideshow',
+      'actions' => array(
+        '0' => array(
+          'weight' => '0',
+          'module' => 'imagecache',
+          'action' => 'imagecache_scale',
+          'data' => array(
+            'width' => '350px',
+            'height' => '100%',
+            'upscale' => 0,
+          ),
+        ),
+      ),
+    ),
     'slideshow-220' => array(
       'presetname' => 'slideshow-220',
       'actions' => array(

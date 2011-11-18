@@ -24,8 +24,10 @@ function photo_gallery_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -40,6 +42,7 @@ function photo_gallery_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 0,
       'label_type' => 'none',
       'format' => 'imagefield__lightshow2__gallery-preview__gallery-slideshow',
@@ -159,6 +162,41 @@ function photo_gallery_views_default_views() {
   $handler->override_option('items_per_page', 12);
   $handler->override_option('use_pager', '1');
   $handler->override_option('style_plugin', 'slideshow');
+  $handler->override_option('style_options', array(
+    'type' => 'ul',
+    'mode' => 'views_slideshow_singleframe',
+    'views_slideshow_singleframe-prefix' => '',
+    'views_slideshow_singleframe' => array(
+      'timeout' => '5000',
+      'delay' => '0',
+      'speed' => '700',
+      'start_paused' => 0,
+      'fixed_height' => '1',
+      'random' => '0',
+      'pause' => '1',
+      'pause_on_click' => '0',
+      'pause_when_hidden' => 0,
+      'pause_when_hidden_type' => 'full',
+      'amount_allowed_visible' => '',
+      'remember_slide' => 0,
+      'remember_slide_days' => '1',
+      'controls' => '2',
+      'pager' => '0',
+      'pager_type' => 'Numbered',
+      'pager_hover' => '2',
+      'pager_click_to_page' => 0,
+      'image_count' => '0',
+      'items_per_slide' => '1',
+      'effect' => 'fade',
+      'sync' => '1',
+      'nowrap' => '0',
+      'advanced' => '',
+      'ie' => array(
+        'cleartype' => 'true',
+        'cleartypenobg' => 'false',
+      ),
+    ),
+  ));
   $handler = $view->new_display('node_content', 'Teaser image', 'node_content_2');
   $handler->override_option('fields', array(
     'field_pictures_fid' => array(
@@ -296,7 +334,7 @@ function photo_gallery_views_default_views() {
     'weight' => 0,
     'name' => 'navigation',
   ));
-  $handler = $view->new_display('block', 'mini-slideshow', 'block_1');
+  $handler = $view->new_display('block', 'page-slideshow', 'block_1');
   $handler->override_option('fields', array(
     'edit_node' => array(
       'label' => '',
@@ -338,8 +376,10 @@ function photo_gallery_views_default_views() {
         'text' => '',
         'make_link' => 0,
         'path' => '',
+        'absolute' => 0,
         'link_class' => '',
         'alt' => '',
+        'rel' => '',
         'prefix' => '',
         'suffix' => '',
         'target' => '',
@@ -354,9 +394,10 @@ function photo_gallery_views_default_views() {
       'empty' => '',
       'hide_empty' => 0,
       'empty_zero' => 0,
+      'hide_alter_empty' => 1,
       'link_to_node' => 0,
       'label_type' => 'none',
-      'format' => 'slideshow-220_default',
+      'format' => 'page_slideshow_default',
       'multiple' => array(
         'group' => 0,
         'multiple_number' => '',
@@ -510,12 +551,15 @@ function photo_gallery_views_default_views() {
     'views_slideshow_singleframe' => array(
       'timeout' => '5000',
       'delay' => '0',
-      'speed' => '700',
+      'speed' => '1400',
       'start_paused' => 0,
       'fixed_height' => '1',
       'random' => '0',
       'pause' => '1',
       'pause_on_click' => '0',
+      'pause_when_hidden' => 0,
+      'pause_when_hidden_type' => 'full',
+      'amount_allowed_visible' => '',
       'remember_slide' => 0,
       'remember_slide_days' => '1',
       'controls' => '0',
@@ -524,42 +568,10 @@ function photo_gallery_views_default_views() {
       'pager_hover' => '2',
       'pager_click_to_page' => 0,
       'image_count' => '0',
+      'items_per_slide' => '1',
       'effect' => 'fade',
       'sync' => '1',
       'nowrap' => '0',
-      'advanced' => '',
-      'ie' => array(
-        'cleartype' => 'true',
-        'cleartypenobg' => 'false',
-      ),
-    ),
-    'views_slideshow_thumbnailhover-prefix' => '',
-    'views_slideshow_thumbnailhover' => array(
-      'main_fields' => array(
-        'field_pictures_fid' => 0,
-        'field_pictures_data' => 0,
-      ),
-      'breakout_fields' => array(
-        'field_pictures_fid' => 0,
-        'field_pictures_data' => 0,
-      ),
-      'teasers_last' => 1,
-      'timeout' => '5000',
-      'delay' => '0',
-      'speed' => '300',
-      'start_paused' => 0,
-      'fixed_height' => '1',
-      'random' => '0',
-      'pause' => '1',
-      'pause_on_click' => '0',
-      'remember_slide' => 0,
-      'remember_slide_days' => '1',
-      'pager_event' => 'mouseover',
-      'controls' => '0',
-      'image_count' => '0',
-      'effect' => 'fade',
-      'sync' => '1',
-      'nowrap' => '1',
       'advanced' => '',
       'ie' => array(
         'cleartype' => 'true',
